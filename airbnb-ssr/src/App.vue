@@ -2,12 +2,12 @@
  * @Author: 李嘉胜 2330165939@qq.com
  * @Date: 2024-01-14 16:52:03
  * @LastEditors: 李嘉胜 2330165939@qq.com
- * @LastEditTime: 2024-01-16 00:00:56
+ * @LastEditTime: 2024-01-16 00:33:09
  * @FilePath: /Project_Vue3-Nuxt3_Airbnb/airbnb-ssr/src/App.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue';
+// import HelloWorld from './components/HelloWorld.vue';
 import { useRouter } from 'vue-router';
 const router = useRouter();
 const aa = '';
@@ -26,8 +26,8 @@ console.log(aa);
 	<HelloWorld msg="Vite + Vue" /> -->
 
 	<!-- router跳转的两种方式 -->
-	<button @click="()=>router.push({path: '/home'})">首页</button>
-	<button @click="()=>router.push({path: '/mine'})">个人中心</button>
+	<button @click="() => router.push({ path: '/home' })">首页</button>
+	<button @click="() => router.push({ path: '/mine' })">个人中心</button>
 
 	<router-link to="/home">首页</router-link>
 	<router-link to="/mine">个人中心</router-link>
@@ -42,9 +42,11 @@ console.log(aa);
 	will-change: filter;
 	transition: filter 300ms;
 }
+
 .logo:hover {
 	filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.vue:hover {
 	filter: drop-shadow(0 0 2em #42b883aa);
 }

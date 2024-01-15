@@ -17,9 +17,8 @@ proxy.$message({
 
 <template>
 	首页
-	<button @click="()=>router.push({path: '/mine',query:{id: 1}})">跳转到个人中心</button>
+	<button @click="() => router.push({ path: '/mine', query: { id: 1 } })">跳转到个人中心</button>
 	<el-button>Default</el-button>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
