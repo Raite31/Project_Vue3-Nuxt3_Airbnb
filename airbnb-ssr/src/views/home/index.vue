@@ -2,13 +2,14 @@
  * @Author: 李嘉胜 2330165939@qq.com
  * @Date: 2024-01-14 17:42:01
  * @LastEditors: 李嘉胜 2330165939@qq.com
- * @LastEditTime: 2024-01-18 00:00:57
+ * @LastEditTime: 2024-01-18 00:31:06
  * @FilePath: /Project_Vue3-Nuxt3_Airbnb/airbnb-ssr/src/views/home/index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <script setup lang="ts">
 import { useRouter, useRoute } from 'vue-router';
 import { getCurrentInstance, h } from 'vue';
+import { fetchRoomList } from '../../api';
 
 const router = useRouter();
 const route = useRoute();
@@ -21,6 +22,11 @@ proxy.$message({
 		h('i', { style: 'color: teal' }, 'VNode'),
 	]),
 });
+
+const getRoomList = () => {
+	fetchRoomList()
+}
+getRoomList()
 </script>
 
 <template>
