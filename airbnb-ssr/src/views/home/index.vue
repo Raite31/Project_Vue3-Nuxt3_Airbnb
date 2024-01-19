@@ -2,7 +2,7 @@
  * @Author: 李嘉胜 2330165939@qq.com
  * @Date: 2024-01-14 17:42:01
  * @LastEditors: 李嘉胜 2330165939@qq.com
- * @LastEditTime: 2024-01-18 00:31:06
+ * @LastEditTime: 2024-01-18 23:59:57
  * @FilePath: /Project_Vue3-Nuxt3_Airbnb/airbnb-ssr/src/views/home/index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -27,6 +27,7 @@ const getRoomList = () => {
 	fetchRoomList()
 }
 getRoomList()
+const value1 = ""
 </script>
 
 <template>
@@ -34,6 +35,7 @@ getRoomList()
 	<button @click="() => router.push({ path: '/mine', query: { id: 1 } })">跳转到个人中心</button>
 	<el-button>Default</el-button>
 	<div class="text">hhhh哈哈哈哈哈哈好哈哈哈1号号号号号号哈哈哈哈哈哈好好哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
+	<el-date-picker v-model="value1" type="date" placeholder="Pick a day" :size="size" />
 </template>
 
 <style lang="scss">

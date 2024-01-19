@@ -2,37 +2,40 @@
  * @Author: 李嘉胜 2330165939@qq.com
  * @Date: 2024-01-14 16:52:03
  * @LastEditors: 李嘉胜 2330165939@qq.com
- * @LastEditTime: 2024-01-17 23:45:45
+ * @LastEditTime: 2024-01-19 09:07:41
  * @FilePath: /Project_Vue3-Nuxt3_Airbnb/airbnb-ssr/src/App.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <script setup lang="ts">
-// import HelloWorld from './components/HelloWorld.vue';
 import { useRouter } from 'vue-router';
+import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
+import en from 'element-plus/dist/locale/en.mjs'
+import { ref } from 'vue'
+
 const router = useRouter();
 const aa = '';
 console.log(aa);
+
+const locale = ref(zhCn);
+const changeLang = (language: any) => {
+	locale.value = language;
+	console.log(locale.value);
+}
 </script>
 
 <template>
-	<!-- <div>
-		<a href="https://vitejs.dev" target="_blank">
-			<img src="/vite.svg" class="logo" alt="Vite logo" />
-		</a>
-		<a href="https://vuejs.org/" target="_blank">
-			<img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-		</a>
-	</div>
-	<HelloWorld msg="Vite + Vue" /> -->
+	<el-config-provider :local="locale">
+		<button @click="changeLang(zhCn)">中文</button>
+		<button @click="changeLang(en)">英文</button>
+		<!-- router跳转的两种方式 -->
+		<button @click="() => router.push({ path: '/home' })">首页</button>
+		<button @click="() => router.push({ path: '/mine' })">个人中心</button>
 
-	<!-- router跳转的两种方式 -->
-	<button @click="() => router.push({ path: '/home' })">首页</button>
-	<button @click="() => router.push({ path: '/mine' })">个人中心</button>
+		<router-link to="/home">首页</router-link>
+		<router-link to="/mine">个人中心</router-link>
 
-	<router-link to="/home">首页</router-link>
-	<router-link to="/mine">个人中心</router-link>
-
-	<router-view></router-view>
+		<router-view></router-view>
+	</el-config-provider>
 </template>
 
 <style scoped lang="scss">
