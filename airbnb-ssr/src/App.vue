@@ -2,14 +2,16 @@
  * @Author: 李嘉胜 2330165939@qq.com
  * @Date: 2024-01-14 16:52:03
  * @LastEditors: 李嘉胜 2330165939@qq.com
- * @LastEditTime: 2024-01-19 09:07:41
+ * @LastEditTime: 2024-01-20 00:12:42
  * @FilePath: /Project_Vue3-Nuxt3_Airbnb/airbnb-ssr/src/App.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
-import en from 'element-plus/dist/locale/en.mjs'
+// import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
+import zhCn from "element-plus/es/locale/lang/zh-cn";
+// import en from 'element-plus/dist/locale/en.mjs'
+import en from "element-plus/es/locale/lang/en";
 import { ref } from 'vue'
 
 const router = useRouter();
@@ -24,7 +26,7 @@ const changeLang = (language: any) => {
 </script>
 
 <template>
-	<el-config-provider :local="locale">
+	<el-config-provider :locale="locale">
 		<button @click="changeLang(zhCn)">中文</button>
 		<button @click="changeLang(en)">英文</button>
 		<!-- router跳转的两种方式 -->
