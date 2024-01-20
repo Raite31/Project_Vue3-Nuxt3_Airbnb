@@ -2,7 +2,7 @@
  * @Author: 李嘉胜 2330165939@qq.com
  * @Date: 2024-01-14 16:52:03
  * @LastEditors: 李嘉胜 2330165939@qq.com
- * @LastEditTime: 2024-01-20 00:12:42
+ * @LastEditTime: 2024-01-20 13:57:10
  * @FilePath: /Project_Vue3-Nuxt3_Airbnb/airbnb-ssr/src/App.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -13,15 +13,18 @@ import zhCn from "element-plus/es/locale/lang/zh-cn";
 // import en from 'element-plus/dist/locale/en.mjs'
 import en from "element-plus/es/locale/lang/en";
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 const router = useRouter();
 const aa = '';
 console.log(aa);
 
+const { locale: localeLanguage } = useI18n()
 const locale = ref(zhCn);
 const changeLang = (language: any) => {
+	console.log("language: ", language);
 	locale.value = language;
-	console.log(locale.value);
+	localeLanguage.value = language.name;
 }
 </script>
 
