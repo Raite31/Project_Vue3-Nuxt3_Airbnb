@@ -2,7 +2,7 @@
  * @Author: 李嘉胜 2330165939@qq.com
  * @Date: 2024-01-14 17:42:01
  * @LastEditors: 李嘉胜 2330165939@qq.com
- * @LastEditTime: 2024-01-20 16:54:41
+ * @LastEditTime: 2024-01-20 23:40:56
  * @FilePath: /Project_Vue3-Nuxt3_Airbnb/airbnb-ssr/src/views/home/index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -32,13 +32,50 @@ const getRoomList = () => {
 }
 getRoomList()
 
+const value1 = ""
+
+// 数据库相关操作
 const airbnbDB = new IndexedDB('airbnb')
 airbnbDB.openStore('elephant', 'id', ['nose', 'ear'])
-const value1 = ""
+
+// 增和改 
+function addDB(storeName: string) {
+	// 增
+	// airbnbDB.updateItem(storeName, {
+	// 	nose: '44m',
+	// 	ear: '比较小'
+	// })
+	// 改
+	airbnbDB.updateItem(storeName, {
+		id: 1,
+		nose: '44m',
+		ear: '比较小'
+	})
+}
+
+// 删除
+function deleteDB(storeName: string, key: number | string) {
+	airbnbDB.deleteItem(storeName, key)
+}
+
+// 查询所有数据
+function getObjectStore(storeName: string) {
+	airbnbDB.getList(storeName)
+}
+
+// 查询所有数据
+function getObjectStoreItem(storeName: string, key: number | string) {
+	airbnbDB.getItem(storeName, key)
+}
+
 </script>
 
 <template>
 	{{ t('message.home') }}
+	<el-button @click="addDB('elephant')">增/改</el-button>
+	<el-button @click="deleteDB('elephant', 2)">删除</el-button>
+	<el-button @click="getObjectStore('elephant')">查询所有数据</el-button>
+	<el-button @click="getObjectStoreItem('elephant', 3)">查询某条数据</el-button>
 	<!-- <button @click="() => router.push({ path: '/mine', query: { id: 1 } })">跳转到个人中心</button>
 	<el-button>Default</el-button>
 	<div class="text">hhhh哈哈哈哈哈哈好哈哈哈1号号号号号号哈哈哈哈哈哈好好哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div> -->
