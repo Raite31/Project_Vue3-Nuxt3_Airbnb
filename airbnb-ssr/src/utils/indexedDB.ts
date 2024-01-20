@@ -1,5 +1,6 @@
 import { rejects } from 'assert';
 import { resolve } from 'path';
+import { env } from 'process';
 
 export default class DB {
 	private dbName: string; // 数据库名称
@@ -23,6 +24,7 @@ export default class DB {
 			request.onerror = (event) => {
 				console.log('数据库打开失败');
 				console.log(event);
+				rejects(event);
 			};
 			request.onupgradeneeded = (event) => {
 				console.log('数据库升级成功');
@@ -55,14 +57,18 @@ export default class DB {
 			.transaction([storeName], 'readwrite')
 			.objectStore(storeName);
 		const request = store.put({ ...data, updateTime: new Date().getTime() });
-		request.onsuccess = (event: any) => {
-			console.log('数据库写入成功');
-			console.log(event);
-		};
-		request.onerror = (event: any) => {
-			console.log('数据库写入失败');
-			console.log(event);
-		};
+		return new Promise((resolve, rejects) => {
+			request.onsuccess = (event: any) => {
+				console.log('数据库写入成功');
+				console.log(event);
+				resolve(event);
+			};
+			request.onerror = (event: any) => {
+				console.log('数据库写入失败');
+				console.log(event);
+				rejects();
+			};
+		});
 	}
 
 	// 删除(delete) 数据库数据
@@ -72,14 +78,18 @@ export default class DB {
 			.transaction([storeName], 'readwrite')
 			.objectStore(storeName);
 		const request = store.delete(key);
-		request.onsuccess = (event: any) => {
-			console.log('数据删除成功');
-			console.log(event);
-		};
-		request.onerror = (event: any) => {
-			console.log('数据库删除失败');
-			console.log(event);
-		};
+		return new Promise((resolve, rejects) => {
+			request.onsuccess = (event: any) => {
+				console.log('数据删除成功');
+				console.log(event);
+				resolve(event);
+			};
+			request.onerror = (event: any) => {
+				console.log('数据库删除失败');
+				console.log(event);
+				rejects(event);
+			};
+		});
 	}
 
 	// 查询所有数据
@@ -96,6 +106,7 @@ export default class DB {
 			request.onerror = (event: any) => {
 				console.log('查询所有数据失败');
 				console.log(event);
+				rejects(event);
 			};
 		});
 	}
@@ -105,13 +116,17 @@ export default class DB {
 		// 参数（数据库对象的名字, 操作模式）
 		const store = this.db.transaction([storeName]).objectStore(storeName);
 		const request = store.get(key);
-		request.onsuccess = (event: any) => {
-			console.log('查询某条数据成功');
-			console.log(event.target.result);
-		};
-		request.onerror = (event: any) => {
-			console.log('查询某条数据失败');
-			console.log(event);
-		};
+		return new Promise((resolve, rejects) => {
+			request.onsuccess = (event: any) => {
+				console.log('查询某条数据成功');
+				console.log(event.target.result);
+				resolve(event.target.result);
+			};
+			request.onerror = (event: any) => {
+				console.log('查询某条数据失败');
+				console.log(event);
+				rejects(event);
+			};
+		});
 	}
 }
