@@ -2,7 +2,7 @@
  * @Author: 李嘉胜 2330165939@qq.com
  * @Date: 2024-01-14 17:42:01
  * @LastEditors: 李嘉胜 2330165939@qq.com
- * @LastEditTime: 2024-01-20 13:58:45
+ * @LastEditTime: 2024-01-20 16:54:41
  * @FilePath: /Project_Vue3-Nuxt3_Airbnb/airbnb-ssr/src/views/home/index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -11,6 +11,7 @@ import { useRoute } from 'vue-router';
 import { getCurrentInstance, h } from 'vue';
 import { fetchRoomList } from '../../api';
 import { useI18n } from 'vue-i18n'
+import IndexedDB from '../../utiils/indexedDB'
 
 const { t } = useI18n()
 console.log(useI18n);
@@ -30,6 +31,9 @@ const getRoomList = () => {
 	fetchRoomList()
 }
 getRoomList()
+
+const airbnbDB = new IndexedDB('airbnb')
+airbnbDB.openStore('elephant', 'id', ['nose', 'ear'])
 const value1 = ""
 </script>
 
