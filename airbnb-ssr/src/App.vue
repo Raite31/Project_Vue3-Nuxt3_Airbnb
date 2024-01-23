@@ -2,7 +2,7 @@
  * @Author: 李嘉胜 2330165939@qq.com
  * @Date: 2024-01-14 16:52:03
  * @LastEditors: 李嘉胜 2330165939@qq.com
- * @LastEditTime: 2024-01-20 13:57:10
+ * @LastEditTime: 2024-01-23 17:12:03
  * @FilePath: /Project_Vue3-Nuxt3_Airbnb/airbnb-ssr/src/App.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -14,6 +14,7 @@ import zhCn from "element-plus/es/locale/lang/zh-cn";
 import en from "element-plus/es/locale/lang/en";
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import headerCommon from './components/layout/headerCommon.vue'
 
 const router = useRouter();
 const aa = '';
@@ -30,15 +31,17 @@ const changeLang = (language: any) => {
 
 <template>
 	<el-config-provider :locale="locale">
-		<button @click="changeLang(zhCn)">中文</button>
-		<button @click="changeLang(en)">英文</button>
+		<!-- <button @click="changeLang(zhCn)">中文</button>
+		<button @click="changeLang(en)">英文</button> -->
 		<!-- router跳转的两种方式 -->
-		<button @click="() => router.push({ path: '/home' })">首页</button>
-		<button @click="() => router.push({ path: '/mine' })">个人中心</button>
+		<!-- <button @click="() => router.push({ path: '/home' })">首页</button>
+		<button @click="() => router.push({ path: '/mine' })">个人中心</button> -->
 
-		<router-link to="/home">首页</router-link>
-		<router-link to="/mine">个人中心</router-link>
+		<!-- <router-link to="/home">首页</router-link>
+		<router-link to="/mine">个人中心</router-link> -->
 
+		<!-- 导航 -->
+		<headerCommon @changeLang="changeLang"></headerCommon>
 		<router-view></router-view>
 	</el-config-provider>
 </template>
