@@ -1,3 +1,11 @@
+/*
+ * @Author: 李嘉胜 2330165939@qq.com
+ * @Date: 2024-01-15 23:18:21
+ * @LastEditors: 李嘉胜 2330165939@qq.com
+ * @LastEditTime: 2024-01-25 14:36:34
+ * @FilePath: /Project_Vue3-Nuxt3_Airbnb/airbnb-ssr/components.d.ts
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 /* eslint-disable */
 /* prettier-ignore */
 // @ts-nocheck
@@ -7,12 +15,15 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    CommonFooter: typeof import('./src/components/layout/commonFooter.vue')['default']
+    CommonHeader: typeof import('./src/components/layout/commonHeader.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElDatePicker: typeof import('element-plus/es')['ElDatePicker']
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
+    FooterCommon: typeof import('./src/components/layout/footerCommon.vue')['default']
     HeaderCommon: typeof import('./src/components/layout/headerCommon.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

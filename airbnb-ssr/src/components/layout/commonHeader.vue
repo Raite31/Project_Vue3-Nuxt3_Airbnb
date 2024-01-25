@@ -2,7 +2,7 @@
  * @Author: 李嘉胜 2330165939@qq.com
  * @Date: 2024-01-23 16:43:21
  * @LastEditors: 李嘉胜 2330165939@qq.com
- * @LastEditTime: 2024-01-23 18:18:05
+ * @LastEditTime: 2024-01-25 14:31:22
  * @FilePath: /Project_Vue3-Nuxt3_Airbnb/airbnb-ssr/src/components/layout/headerCommon.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -45,5 +45,5 @@ function handleSelect(e: any) {
 </template>
 
 <style lang="scss">
-@import "@/assets/scss/layout/index.scss";
+@import "@/assets/scss/layout/commonHeader.scss";
 </style>
