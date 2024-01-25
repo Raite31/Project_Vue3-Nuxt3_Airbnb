@@ -2,7 +2,7 @@
  * @Author: 李嘉胜 2330165939@qq.com
  * @Date: 2024-01-23 16:43:21
  * @LastEditors: 李嘉胜 2330165939@qq.com
- * @LastEditTime: 2024-01-25 14:31:22
+ * @LastEditTime: 2024-01-25 14:57:03
  * @FilePath: /Project_Vue3-Nuxt3_Airbnb/airbnb-ssr/src/components/layout/headerCommon.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -10,6 +10,9 @@
 import { ref, defineEmits } from 'vue'
 import zhCn from "element-plus/es/locale/lang/zh-cn";
 import en from "element-plus/es/locale/lang/en";
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const activeIndex = ref("orders")
 // vue3新api
@@ -30,12 +33,12 @@ function handleSelect(e: any) {
     <div class="header-common">
         <img class="logo" src="../../assets/images/layout/logo.png" mode="aspectFill" alt="爱此迎">
         <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-            <el-menu-item index="orders">房屋订单中心</el-menu-item>
-            <el-menu-item index="records">历史足迹</el-menu-item>
+            <el-menu-item index="orders">{{ t("header.orders") }}</el-menu-item>
+            <el-menu-item index="records">{{ t("header.records") }}</el-menu-item>
             <el-sub-menu index="2">
-                <template #title>国际化切换</template>
+                <template #title>{{ t("header.language") }}</template>
                 <el-menu-item index="zh">中文</el-menu-item>
-                <el-menu-item index="en">英文</el-menu-item>
+                <el-menu-item index="en">English</el-menu-item>
             </el-sub-menu>
             <el-menu-item index="avatar">
                 <img class="avatar" src="../../assets/images/layout/avatar.png" alt="个人中心">

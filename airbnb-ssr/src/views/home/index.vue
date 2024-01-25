@@ -10,10 +10,7 @@
 import { useRoute } from 'vue-router';
 import { getCurrentInstance, h } from 'vue';
 import { fetchRoomList, fetchElephant } from '../../api';
-import { useI18n } from 'vue-i18n'
-// import IndexedDB from '../../utils/indexedDB'
-
-const { t } = useI18n()
+w
 console.log(useI18n);
 // const router = useRouter();
 const route = useRoute();

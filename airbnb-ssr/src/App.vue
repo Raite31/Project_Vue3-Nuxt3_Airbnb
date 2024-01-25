@@ -2,7 +2,7 @@
  * @Author: 李嘉胜 2330165939@qq.com
  * @Date: 2024-01-14 16:52:03
  * @LastEditors: 李嘉胜 2330165939@qq.com
- * @LastEditTime: 2024-01-25 14:33:04
+ * @LastEditTime: 2024-01-25 15:03:57
  * @FilePath: /Project_Vue3-Nuxt3_Airbnb/airbnb-ssr/src/App.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -44,9 +44,11 @@ const changeLang = (language: any) => {
 		<!-- 导航 -->
 		<commonHeader @changeLang="changeLang"></commonHeader>
 		<!-- 主体 -->
+		<div class="container">
+			<router-view></router-view>
+		</div>
 		<!-- 底部 -->
 		<commonFooter></commonFooter>
-		<router-view></router-view>
 	</el-config-provider>
 </template>
 
