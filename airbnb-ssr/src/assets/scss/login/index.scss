@@ -1,0 +1,24 @@
+.login-page {
+	@include flex-layout(row);
+	height: 100vh;
+	.left-part {
+		flex: 30;
+		height: 100%;
+		background-image: url('../../images/login/bg2.png');
+		background-size: cover;
+	}
+	.right-part {
+		flex: 20;
+		@include flex-layout(row, center, center);
+		.login-panel {
+			width: 300px;
+			.el-tabs__nav {
+				float: initial;
+				text-align: center;
+			}
+			.el-tabs__item {
+				font-size: 24px;
+			}
+		}
+	}
+}

@@ -10,7 +10,7 @@
 import { useRoute } from 'vue-router';
 import { getCurrentInstance, h } from 'vue';
 import { fetchRoomList, fetchElephant } from '../../api';
-w
+
 console.log(useI18n);
 // const router = useRouter();
 const route = useRoute();
